@@ -12,16 +12,20 @@ export class ListadoComponent{
   heroes:string[] = ['IronMan-', 'CAmerica-', 'Hulk-', 'Thor'];
   borrados:string[] = [];
   borrado = false;
-  num=0;
-  borrar2=this.heroes.length;
   muerto='';
+  posicion = '';
+  borrado2=0;
   borrar(numero:number){
-    this.borrar2++;
-    this.borrados.push(this.heroes[this.num]);
-    this.muerto ='Se acaba de borrar ' + this.heroes[this.num];
+    if(numero >= this.heroes.length ){
+    this.posicion = 'No hay ningun heroe en esa posicion';
+    this.error(this.posicion);
+    }else{
+    this.borrados.push(this.heroes[numero]);
+    this.muerto ='Se acaba de borrar ' + this.heroes[numero];
     this.heroes.splice(numero, 1);
     this.borrado = true;
-    
+    this.posicion = '';
+    }
   }
   hola():string{
     if(this.borrado){
@@ -31,6 +35,9 @@ export class ListadoComponent{
     }
   }
 
+  error(posicion:string):string{
+  return posicion;
+  }
   muertoahora(muerto:string):string{
   return muerto;
   }
