@@ -1,0 +1,16 @@
+<h1>Listado de Heroes</h1>
+<tr *ngFor="let item of heroes">
+    <td>
+            {{item}}
+           
+  </td>
+    </tr>
+    <br>
+    <button (click)="borrar(0)">Borrar Heroe1</button>
+    <button (click)="borrar(1)">Borrar Heroe2</button>
+    <button (click)="borrar(2)">Borrar Heroe3</button>
+    <button (click)="borrar(3)">Borrar Heroe4</button>
+    <p>Ten en cuenta que al borrar un heroe el siguiente en la lista remplazara su puesto</p>
+    <span>{{hola()}}</span>
+    <br>
+    <span>{{muertoahora(this.muerto)}}</span>
